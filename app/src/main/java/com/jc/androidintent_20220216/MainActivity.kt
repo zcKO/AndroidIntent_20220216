@@ -33,5 +33,13 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btnSendTo.setOnClickListener {
+            val inputPhone = edtPhoneNum.text.toString()
+            val myUri = Uri.parse("smsto:${inputPhone}")
+
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+            startActivity(myIntent)
+        }
+
     }
 }

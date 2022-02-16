@@ -30,6 +30,12 @@
         android:id="@+id/btnCall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="전화 걸기 (CALL)"/>
+        android:text="전화 걸기 (CALL)" />
+
+    <Button
+        android:id="@+id/btnSendTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="문자 보내기 (SENDTO)" />
 
 </LinearLayout>
