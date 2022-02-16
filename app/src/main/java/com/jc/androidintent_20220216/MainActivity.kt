@@ -67,6 +67,13 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btnKakaoTalkPlayStoreLink.setOnClickListener {
+            // details?id=com.kakao.talk : 해당 URI 가 어떤 앱인지 확인해주는 URI
+            val myUri = Uri.parse("market://details?id=com.kakao.talk")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
     }
 
     private fun setupPermissions() {

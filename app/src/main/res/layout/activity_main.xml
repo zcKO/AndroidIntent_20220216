@@ -48,6 +48,13 @@
         android:id="@+id/btnNaverWebLink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="네이버로 이동"/>
+        android:text="네이버로 사이트로 이동 (VIEW)"/>
+
+    <Button
+        android:id="@+id/btnKakaoTalkPlayStoreLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카카오톡 앱 다운로드 이동 (VIEW)"/>
+
 
 </LinearLayout>
