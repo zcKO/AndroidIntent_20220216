@@ -59,6 +59,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
+        btnNaverWebLink.setOnClickListener {
+
+            val myUri = Uri.parse("https://www.naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+
+        }
+
     }
 
     private fun setupPermissions() {
@@ -78,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             arrayOf(Manifest.permission.CALL_PHONE),
             CALL_REQUEST_CODE)
     }
-기
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
