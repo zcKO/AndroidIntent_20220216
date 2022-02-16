@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             arrayOf(Manifest.permission.CALL_PHONE),
             CALL_REQUEST_CODE)
     }
-
+기
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
