@@ -34,10 +34,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSendTo.setOnClickListener {
+
+//            문자 보낼 내용 추출
+            val inputContent = edtContent.text.toString()
+
             val inputPhone = edtPhoneNum.text.toString()
             val myUri = Uri.parse("smsto:${inputPhone}")
 
             val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+
+//            문자앱은 우리가 컨트롤 할 수 없다. 문자앱에서 정해둔 이름표를 찾아서 보내야한다.
+            myIntent.putExtra("sms_body", inputContent)
+
             startActivity(myIntent)
         }
 

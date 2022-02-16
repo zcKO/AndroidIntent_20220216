@@ -32,6 +32,12 @@
         android:layout_height="wrap_content"
         android:text="전화 걸기 (CALL)" />
 
+    <EditText
+        android:id="@+id/edtContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="문자로 보낼 내용 입력" />
+
     <Button
         android:id="@+id/btnSendTo"
         android:layout_width="match_parent"
