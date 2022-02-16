@@ -1,15 +1,25 @@
 package com.jc.androidintent_20220216
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    val CALL_REQUEST_CODE = 1001
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setupPermissions()
 
         btnDial.setOnClickListener {
             val inputPhoneNum = edtPhoneNum.text.toString()
@@ -50,4 +60,36 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun setupPermissions() {
+        // CALL_PHONE 퍼미션을 permission 변수에 담는다
+        val permission = ContextCompat.checkSelfPermission(this,
+            Manifest.permission.CALL_PHONE)
+
+        // 권한이 없다면 makeRequest() 로 이동
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            makeRequest()
+        }
+    }
+
+    private fun makeRequest() {
+        // 권한 목록 담기
+        ActivityCompat.requestPermissions(this,
+            arrayOf(Manifest.permission.CALL_PHONE),
+            CALL_REQUEST_CODE)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "권한이 거부됨", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
 }
